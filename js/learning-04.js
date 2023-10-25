@@ -611,3 +611,83 @@ function updateRecords(records, id, prop, value) {
 
 updateRecords(recordCollection, 5439, 'artist', 'ABBA');
 // ========================================
+// Problem 4: Create a function isPrime that takes a number as a parameter and returns true if it's a prime number, and false otherwise.
+//======================================================================
+function isPrime(number) {
+  if (number <= 1) {
+      return false; // 0 and 1 are not prime numbers
+  }
+  
+  if (number <= 3) {
+      return true; // 2 and 3 are prime numbers
+  }
+
+  if (number % 2 === 0 || number % 3 === 0) {
+      return false; // Numbers divisible by 2 or 3 are not prime
+  }
+
+  for (let i = 5; i * i <= number; i += 6) {
+      if (number % i === 0 || number % (i + 2) === 0) {
+          return false; // If it's divisible by any number in the form 6k ± 1, it's not prime
+      }
+  }
+
+  return true; // It's prime if not divisible by any of the above cases
+}
+
+// Example usage:
+const numberToCheck = 17; // Replace with the number you want to check
+const isItPrime = isPrime(numberToCheck);
+console.log(`Is ${numberToCheck} a prime number? ${isItPrime}`);
+
+// ========================================
+// Problem 4: Create a function isPrime that takes a number as a parameter and returns true if it's a prime number, and false otherwise.
+//======================================================================
+function isPrime(number) {
+  // Check if the number is less than 2 (not prime)
+  if (number <= 1) {
+    return false;
+  }
+
+  // Check for divisibility by numbers from 2 to the square root of the number
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false; // If the number is divisible, it's not prime
+    }
+  }
+
+  return true; // If no divisors were found, the number is prime
+}
+
+// Get a number from the user and check if it's prime
+const userNumber = parseInt(prompt("Enter a number:"));
+
+if (!isNaN(userNumber)) {
+  if (isPrime(userNumber)) {
+    console.log(userNumber + " is a prime number.");
+  } else {
+    console.log(userNumber + " is not a prime number.");
+  }
+} else {
+  console.log("Invalid input. Please enter a valid number.");
+}
+
+// ========================================
+// Problem 7: Create a function removeDuplicates that takes an array and returns a new array with duplicates removed.
+//======================================================================
+function removeDuplicates(myNumbers) {
+  const uniqueArray = [];
+  
+  for (const mySingleNum of myNumbers) {
+      if (!uniqueArray.includes(mySingleNum)) {
+          uniqueArray.push(mySingleNum);
+      }
+  }
+  
+  return uniqueArray;
+}
+
+
+const originalArray = [1, 2, 2, 3, 4, 4, 5];
+console.log(removeDuplicates(originalArray));
+//======================================================================
