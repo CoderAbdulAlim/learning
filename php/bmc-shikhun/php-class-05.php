@@ -198,6 +198,21 @@ $peoples = [
 
 // var_dump($peoples);
 
+// $numbersA = [1, 2, 3, 4, 5];
+
+// var_dump($numbersA);
+
+// foreach ($numbersA as &$numberA) {
+//     $numberA *= 2;
+//     unset($numberA);
+// }
+
+// var_dump($numbersA); //I have face no problem like 8 and 8
+
+// foreach ($numbersA as $numberA) {
+//     echo $numberA  . PHP_EOL;
+// }
+
 $numbersA = [1, 2, 3, 4, 5];
 
 var_dump($numbersA);
