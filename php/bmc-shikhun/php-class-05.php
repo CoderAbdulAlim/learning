@@ -213,7 +213,7 @@ $peoples = [
 //     echo $numberA  . PHP_EOL;
 // }
 
-$numbersA = [1, 2, 3, 4, 5];
+$numbersA = [6, 7, 8, 9, 10];
 
 var_dump($numbersA);
 
