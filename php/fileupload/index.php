@@ -24,23 +24,22 @@
             $file_tmp = $_FILES['upfile']['tmp_name'][$key];
             $file_type = $_FILES['upfile']['type'][$key];
 
-            if (move_uploaded_file($file_tmp, $destination.$file_name)) {
+            if ($file_size >= $allowFileSize) {
+                echo 'File permited size is ' . $allowfileSizeMB . ' MB';
+                exit;
+            }
+
+            if (!in_array($file_type, $allowFileType)) {
+                echo 'Only png, jpg, jpeg are permited';
+                exit;
+            }
+
+            if (move_uploaded_file($file_tmp, $destination . $file_name)) {
                 echo 'File uploaded successfully.';
-            }else{
+            } else {
                 echo 'Error uploading file.';
             }
         }
-        // if(in_array($_FILES['upfile']['type'], $allowFileType) == false){
-        // if(!in_array($_FILES['upfile']['type'], $allowFileType)){
-        //     echo 'Only png, jpg, jpeg are permited';
-        //     exit;
-        // }
-
-        // if($_FILES['upfile']['size'] >= $allowFileSize){
-        //     echo 'File permited size is ' . $allowfileSizeMB . ' MB';
-        //     exit;
-        // }
-        
     } else {
         echo "No file uploaded.";
     }
